@@ -9,8 +9,8 @@ import {SearchScreen} from './SearchScreen.js'
 import {PostDetailsScreen} from './PostDetailsScreen.js'
 import {CreatePostScreen} from './CreatePostScreen.js'
 import {ProfileScreen} from './ProfileScreen.js'
-import {SettingsScreen} from './SearchScreen.js'
-
+import {SettingsScreen} from './SettingsScreen.js'
+import {ReviewsScreen} from './ReviewListScreen.js'
 const HomeStack = createStackNavigator();
 
 export function HomeStackScreen() {
@@ -18,6 +18,8 @@ export function HomeStackScreen() {
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <PostDetailsStack.Screen name="PostDetails" component={PostDetailsScreen} />
+      <ReviewListStack.Screen name="Reviews" component={ReviewsScreen} />
+      
     </HomeStack.Navigator>
   );
 }
@@ -44,7 +46,7 @@ const ProfileStack = createStackNavigator();
 export function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator>
-      <ProfileStack.Screen name="Pofile" component={ProfileScreen} />
+      <ProfileStack.Screen name="Profile" component={ProfileScreen} />
       </ProfileStack.Navigator>
   );
 }
@@ -62,8 +64,28 @@ export function SettingsStackScreen() {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen name="Settings" component={SettingsScreen} />
-      
-    </SettingsStack.Navigator>
+      </SettingsStack.Navigator>
+  );
+}
+
+const ReviewListStack = createStackNavigator();
+
+export function ReviewListStackScreen() {
+  return (
+    <ReviewListStack.Navigator>
+      <ReviewListStack.Screen name="Reviews" component={ReviewsScreen} />
+      </ReviewListStack.Navigator>
+  );
+}
+
+
+const IndividualReviewStack = createStackNavigator();
+
+export function IndividualReviewStackScreen() {
+  return (
+    <IndividualReviewStack.Navigator>
+      <IndividualReviewStack.Screen name="IndividualReview" component={IndividualReviewScreen} />
+      </IndividualReviewStack.Navigator>
   );
 }
 

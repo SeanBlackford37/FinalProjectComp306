@@ -5,14 +5,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styles from './Styles'
 
-export function SettingsScreen({ navigation }) {
+export function SettingsScreen({route, navigation}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Settings screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
+        
       </View>
     );
   }
