@@ -31,7 +31,7 @@ let DATA = [
     ];
 
 
-export function HomeScreen({ navigation }) {
+export function HomeScreen({ navigation, route }) {
     const [input, setData] = useState(DATA);  
     
       const _renderItem = input => (
@@ -57,8 +57,18 @@ export function HomeScreen({ navigation }) {
       const _update = () =>{
         setData(DATA)
       } 
-  
-  
+
+	  React.useEffect(() => {
+	  console.log("useEffect called");
+		if(route.params?.addGame){
+			console.log("addGame " + route.params?.addGame);
+			//DATA.push(addGame);
+			//_update();
+		}
+		else{
+			console.log("nothin");
+		}
+	  }, [route.params?.addGame]);
   
   
     return (
