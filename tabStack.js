@@ -4,13 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styles from './Styles'
-import {HomeScreen} from './HomeScreen.js'
+import HomeScreen from './HomeScreen.js'
 import {SearchScreen} from './SearchScreen.js'
 import {PostDetailsScreen} from './PostDetailsScreen.js'
-import {CreatePostScreen} from './CreatePostScreen.js'
+import CreatePostScreen from './CreatePostScreen.js'
 import {ProfileScreen} from './ProfileScreen.js'
 import {SettingsScreen} from './SettingsScreen.js'
 import {ReviewsScreen} from './ReviewListScreen.js'
+
 const HomeStack = createStackNavigator();
 
 export function HomeStackScreen() {
@@ -19,7 +20,7 @@ export function HomeStackScreen() {
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <PostDetailsStack.Screen name="PostDetails" component={PostDetailsScreen} />
       <ReviewListStack.Screen name="Reviews" component={ReviewsScreen} />
-      
+     
     </HomeStack.Navigator>
   );
 }

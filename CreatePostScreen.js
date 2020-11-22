@@ -1,28 +1,16 @@
 import React, {useState} from 'react';
-import { Button, Text, View, FlatList, TouchableHighlight, Alert, Image, TextInput, Slider} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//import Slider from '@react-native-community/slider';
-import styles from './Styles'
-import {HomeScreen} from './HomeScreen.js'
-import {SearchScreen} from './SearchScreen.js'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { StyleSheet, Text, View, Button, TextInput, Slider } from 'react-native';
+import { addFriend } from './gameActions';
 
-//$ npm install --save @ptomasroos/react-native-multi-slider
-
-export function CreatePostScreen({ navigation }) {
-
+function CreatePostScreen(props) {
 	const [inputTitle, setInputTitle] = useState("title");
 	const [inputReview, setInputReview] = useState("null");
 	const [inputPlayTime, setInputPlayTime] = useState("0");
 	const [sliderValue, setSliderValue] = useState(5);
-
-
-	//onPress={() => {navigation.navigate('Home', { addGame: JSON.stringify({title: inputTitle, score: sliderValue, playTime: inputPlayTime, review: inputReview})});
-			//}}
-
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Create Post</Text>
 		<Text> Enter game title: {inputTitle} </Text>
 		<TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1}}
@@ -52,11 +40,39 @@ export function CreatePostScreen({ navigation }) {
 
 		
 		<Button style={{marginBottom: 100}}
-			onPress={() => {navigation.navigate('Home', { addGame: JSON.stringify({title: inputTitle, score: sliderValue, playTime: inputPlayTime, review: inputReview}) } ) }
-			}
+			
+			onPress={() => props.addFriend(inputTitle, sliderValue, inputPlayTime, inputReview)}
 			title='Add Review'
 		  />
-        
+         <Button
+          title="Back to home"
+          onPress={() =>
+            props.navigation.navigate('Home')
+          }
+        />
       </View>
     );
-  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+const mapStateToProps = (state) => {
+  const {gameList } = state
+  return { gameList}
+};
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    addFriend,
+  }, dispatch)
+);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePostScreen);
