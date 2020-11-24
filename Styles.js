@@ -56,6 +56,45 @@ import {StyleSheet} from 'react-native';
     padding: 10,
     elevation: 2
   },
-  });
+	profilePicture: {
+	position: 'absolute',
+	left: 30,
+	top: 30,
+	borderRadius: 200,
+	borderWidth: 2,
+	height: 200,
+	width: 200
+},
+	profileInfoHeader: {
+	position: 'absolute',
+	top: 40,
+	left: 300,
+	fontWeight: "bold",
+	fontSize: 30
+	
+},
+	profileText: {
+	position: 'absolute',
+	left: 250,
+	top: 80,
+	borderWidth: 2,
+},
+	editProfile: {
+	position: 'absolute',
+	left: 90,
+	top: 200,
+    	backgroundColor: "#bad8e0",
+    	padding: 10,
+	borderRadius: 10
+},
+item: {
+    flex: 1,
+    marginHorizontal: 10,
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: "lightblue",
+    fontSize: 24
+  }
+});
   
   export default styles
