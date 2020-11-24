@@ -13,7 +13,7 @@ function CreatePostScreen(props) {
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Create Post</Text>
 		<Text> Enter game title: {inputTitle} </Text>
-		<TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1}}
+		<TextInput style={{ height: 40, width: 120, borderColor: 'gray', borderWidth: 1}}
 		onChangeText ={text => setInputTitle(text)}
 		/>
 
@@ -24,15 +24,15 @@ function CreatePostScreen(props) {
 
 		<Text> {"\n"} </Text>
 
-		<Text> Enter play time: {inputPlayTime} </Text>
-		<TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1}}
+		<Text> Enter play time (in hours): {inputPlayTime} </Text>
+		<TextInput style={{ height: 40, width: 40, borderColor: 'gray', borderWidth: 1}}
 		onChangeText ={text3 => setInputPlayTime(text3)}
 		/>
 
 		<Text> {"\n"} </Text>
 
 		<Text> What did you think about the game? </Text>
-		<TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1}}
+		<TextInput style={{ height: 100, width: 150,borderColor: 'gray', borderWidth: 1}}
 		onChangeText ={text4 => setInputReview(text4)}
 		/>
 
