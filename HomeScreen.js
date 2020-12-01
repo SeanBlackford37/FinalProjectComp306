@@ -37,7 +37,7 @@ function HomeScreen(props) {
           renderItem={_renderItem}
           
           keyExtractor={item => item.gameName}/>
-          <Text>You have {props.gameList.current.length} friends.</Text>
+          {/* <Text>You have {props.gameList.current.length} friends.</Text> */}
 
           {/* <Button
             title="Add some friends"

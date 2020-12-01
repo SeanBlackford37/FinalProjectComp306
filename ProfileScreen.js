@@ -10,25 +10,25 @@ import {SearchScreen} from './SearchScreen.js'
 
 const temp_data = [
 {
-	id: 1,
+	id: '1',
 	title: "Batman",
 	rating: 5,
 	review: "The game makes you FEEL like batman"
 },
 {
-	id: 2,
+	id: '2',
 	title: "Spiderman",
 	rating: 10,
 	review: "Gives you the exaggerated swagger of a black teen"
 },
 {
-	id: 3,
+	id: '3',
 	title: "God of War",
 	rating: 9,
 	review: "Insane vibes"
 },
 {
-	id: 4, 
+	id: '4', 
 	title: "Street Fighter V",
 	rating: 8,
 	review: "Fighting Streets has never been so easy"

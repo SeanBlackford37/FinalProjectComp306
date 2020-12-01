@@ -49,7 +49,7 @@ const gameReviews = (state = INITIAL_STATE, action) => {
       
 
       // And put friend in friends.current
-      current.push({PostID: 1, gameName: action.gameName, userScore: action.score, postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png"});
+      current.push({PostID: '05', gameName: action.gameName, userScore: action.score, postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png"});
       
       // Finally, update the redux state
       const newState = { current, possible };
