@@ -10,7 +10,7 @@ import {PostDetailsScreen} from './PostDetailsScreen.js'
 import CreatePostScreen from './CreatePostScreen.js'
 import {ProfileScreen} from './ProfileScreen.js'
 import {SettingsScreen} from './SettingsScreen.js'
-import {ReviewsScreen} from './ReviewListScreen.js'
+import {IndividualReview} from './ReviewListScreen.js'
 
 const HomeStack = createStackNavigator();
 
@@ -19,7 +19,7 @@ export function HomeStackScreen() {
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <PostDetailsStack.Screen name="PostDetails" component={PostDetailsScreen} />
-      <ReviewListStack.Screen name="Reviews" component={ReviewsScreen} />
+      <IndividualReviewStack.Screen name="IndividualReview" component={IndividualReview} />
      
     </HomeStack.Navigator>
   );
@@ -69,24 +69,16 @@ export function SettingsStackScreen() {
   );
 }
 
-const ReviewListStack = createStackNavigator();
-
-export function ReviewListStackScreen() {
-  return (
-    <ReviewListStack.Navigator>
-      <ReviewListStack.Screen name="Reviews" component={ReviewsScreen} />
-      </ReviewListStack.Navigator>
-  );
-}
-
-
 const IndividualReviewStack = createStackNavigator();
 
 export function IndividualReviewStackScreen() {
   return (
     <IndividualReviewStack.Navigator>
-      <IndividualReviewStack.Screen name="IndividualReview" component={IndividualReviewScreen} />
+      <IndividualReviewStack.Screen name="IndividualReview" component={IndividualReview} />
       </IndividualReviewStack.Navigator>
   );
 }
+
+
+
 
