@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styles from './Styles'
 import HomeScreen from './HomeScreen.js'
 import {SearchScreen} from './SearchScreen.js'
-import {PostDetailsScreen} from './PostDetailsScreen.js'
+import PostDetailsScreen from './PostDetailsScreen.js'
 import CreatePostScreen from './CreatePostScreen.js'
 import {ProfileScreen} from './ProfileScreen.js'
 import {SettingsScreen} from './SettingsScreen.js'

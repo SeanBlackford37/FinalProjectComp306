@@ -6,40 +6,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styles from './Styles'
 import {HomeScreen} from './HomeScreen.js'
 import {SearchScreen} from './SearchScreen.js'
-
-let DATA = [
-  { PostID: "01", 
-    gameName: "Mario Cart",
-    profilePic: "https://i.imgur.com/PRdZe1d.png",
-    userScore: 6, 
-    postContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    picture: "https://target.scene7.com/is/image/Target/GUEST_57bbec2f-28e8-40ab-885a-ae1976302fdd?wid=488&hei=488&fmt=pjpeg",
-    playTime: 1.5,
-  },
-  { PostID: "02", 
-    gameName: "Spider-man Miles Morales",
-    profilePic: "https://i.pinimg.com/564x/99/27/90/99279086833d4d0662c19f294035630b.jpg",
-    userScore: 9, 
-    postContent: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    picture: "https://target.scene7.com/is/image/Target/GUEST_57bbec2f-28e8-40ab-885a-ae1976302fdd?wid=488&hei=488&fmt=pjpeg",
-    playTime: 15,
-  },
-  { PostID: "03", 
-    gameName: "Minecraft",
-    profilePic: "https://static.wikia.nocookie.net/xbox/images/d/d6/Orange-black-skull.jpg/revision/latest/top-crop/width/300/height/300?cb=20200426103335",
-    userScore: 10, 
-    postContent: "xcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    picture: "https://target.scene7.com/is/image/Target/GUEST_57bbec2f-28e8-40ab-885a-ae1976302fdd?wid=488&hei=488&fmt=pjpeg",
-    playTime: 100,
-  },
-  ];
+import { connect } from 'react-redux';
 
 
 
-export function PostDetailsScreen(props) {
+
+
+function PostDetailsScreen(props) {
   const {gameName,userScore,postContent, playTime, picture} = props.route.params;
-  const [input, setData] = useState(DATA);  
-
+  const [input, setData] = useState(props.gameList.reviewListC);  
+  
   const _renderItem = input => (
         
     <TouchableOpacity 
@@ -64,14 +40,15 @@ return (
           
           renderItem={_renderItem}
           
-          keyExtractor={item => item.gameName}/>
-      {/* <TouchableOpacity style = {{ marginTop:20, borderRadius: 10, borderWidth: 5, borderColor: 'black', padding: 15}}
-        
-        onPress={() =>  navigation.navigate('Reviews',{picture: picture})}
-      >
-        <Text>Reviews</Text>
-      </TouchableOpacity> */}
-      
+          keyExtractor={item => item.PostID}/>
     </View>
   );
 }
+
+
+const mapStateToProps = (state) => {
+  const { gameList } = state
+  return { gameList }
+};
+
+export default connect(mapStateToProps)(PostDetailsScreen);

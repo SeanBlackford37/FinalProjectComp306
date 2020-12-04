@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 
 function HomeScreen(props) {
     const [input, setData] = useState(props.gameList.current);  
-    
+      
+      
       const _renderItem = input => (
         
        <TouchableOpacity 

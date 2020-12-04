@@ -12,7 +12,7 @@ import {SearchScreen} from './SearchScreen.js'
 
 export function IndividualReview(props) {
   const {gameName,userScore,postContent, playTime, picture, profilePic} = props.route.params;
- 
+  
   
 return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -21,7 +21,7 @@ return (
       
       <Text>User Score Score: {userScore}</Text>
       <Text>User Play Time: {playTime} hrs</Text>
-      <Text style={{justifyContent: 'center', alignItems: 'center', padding: 20 }}>{postContent} hrs</Text>
+      <Text style={{justifyContent: 'center', alignItems: 'center', padding: 20 }}>{postContent} </Text>
      
       
     </View>
