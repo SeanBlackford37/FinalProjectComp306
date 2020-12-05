@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Button, Text, View, FlatList, TouchableHighlight, Alert, Image, TouchableOpacity } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { Button, Text, View, FlatList, TouchableHighlight, Alert, Image, TouchableOpacity, RecyclerViewBackedScrollViewComponent } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,11 +9,29 @@ import { connect } from 'react-redux';
 
 
 
-function HomeScreen(props) {
-    const [input, setData] = useState(props.gameList.current);  
-      
-      
-      const _renderItem = input => (
+function HomeScreen(props)  {
+  
+  const [inputTwo, setDataTwo] = useState(props.gameList.current);  
+    
+  // let item = input[0].firstPost
+  // console.log(item)
+  let reviewList = []
+ 
+  for(var i = 0; i < inputTwo.length; i++){
+     
+     if(inputTwo[i].firstPost == "True"){
+        reviewList.push(inputTwo[i])
+        
+     }
+     
+  }
+  const [input, setData] = useState(reviewList)
+  
+  const _update = () =>{
+    setData(reviewList)
+  } 
+     
+  const _renderItem = input => (
         
        <TouchableOpacity 
             onPress={() =>  props.navigation.navigate('PostDetails',{picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime})}>
@@ -37,7 +55,12 @@ function HomeScreen(props) {
           
           renderItem={_renderItem}
           
-          keyExtractor={item => item.gameName}/>
+          keyExtractor={item => item.PostID}/>
+          <Button 
+          color="blue"
+          onPress={_update}
+          title="Refresh List"
+      />
           {/* <Text>You have {props.gameList.current.length} friends.</Text> */}
 
           {/* <Button

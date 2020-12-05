@@ -7,3 +7,4 @@ export const addFriend = (title,score,playTime,review) => (
       review: review 
     }
   );
+

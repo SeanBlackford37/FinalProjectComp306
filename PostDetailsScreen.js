@@ -12,12 +12,25 @@ import { connect } from 'react-redux';
 
 
 
-function PostDetailsScreen(props) {
-  const {gameName,userScore,postContent, playTime, picture} = props.route.params;
-  const [input, setData] = useState(props.gameList.reviewListC);  
-  
-  const _renderItem = input => (
+export function PostDetailsScreen(props) {
+  const {gameName,userScore,postContent, playTime, picture,firstPost, PostID} = props.route.params;
+  const [inputTwo, setDataTwo] = useState(props.gameList.current);  
+  // let item = input[0].firstPost
+  // console.log(item)
+  let reviewList = []
+ 
+  for(var i = 0; i < inputTwo.length; i++){
+     
+     if(inputTwo[i].gameName == gameName ){
+        reviewList.push(inputTwo[i])
         
+     }
+  }
+  
+  const [input, setData] = useState(reviewList)
+   
+  const _renderItem = input => (
+    
     <TouchableOpacity 
          onPress={() =>  props.navigation.navigate('IndividualReview',{picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime, profilePic: input.item.profilePic})}>
          <View style={{flexDirection: "row"}}>
