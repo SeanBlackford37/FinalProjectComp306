@@ -94,7 +94,34 @@ item: {
     padding: 30,
     backgroundColor: "lightblue",
     fontSize: 24
-  }
+     },
+     inputs: {
+         borderColor: 'gray',
+         borderWidth: 1,
+         backgroundColor: 'white',
+         height: 40,
+         width: 120,
+     },
+     smallInputs: {
+         borderColor: 'gray',
+         borderWidth: 1,
+         backgroundColor: 'white',
+         height: 40,
+         width: 40,
+     },
+     largeInputs: {
+         borderColor: 'gray',
+         borderWidth: 1,
+         backgroundColor: 'white',
+         height: 100,
+         width: 150,
+         textAlign: 'left',
+     },
+     labels: {
+         fontSize: 24,
+         color: 'white',
+         fontWeight: 'bold',
+     },
 });
   
   export default styles
