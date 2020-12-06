@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { StyleSheet, Text, View, Button, TextInput, Slider } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Slider, Image } from 'react-native';
 import { addFriend } from './gameActions';
 
 function CreatePostScreen(props) {
@@ -10,29 +10,34 @@ function CreatePostScreen(props) {
 	const [inputPlayTime, setInputPlayTime] = useState("0");
 	const [sliderValue, setSliderValue] = useState(5);
     return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Create Post</Text>
-		<Text> Enter game title: {inputTitle} </Text>
-		<TextInput style={{ height: 40, width: 120, borderColor: 'gray', borderWidth: 1}}
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#05c131' }}>
+            <Image
+                source={require('./images/VelpLogoFull.png')}
+                style={{ height: 100, width:200 }}
+            />
+            <Text style={styles.labels}> Enter game title: {inputTitle} </Text>
+            <TextInput style={styles.inputs}
 		onChangeText ={text => setInputTitle(text)}
 		/>
 
 		<Text> {"\n"} </Text>
 
-		<Text> Enter score: {parseInt(sliderValue)} </Text>
-		<Slider style={{ width: 280 }} value={sliderValue} minimumValue = {0} maximumValue = {10} onValueChange = {(val) => {setSliderValue(val)}} />
+            <Text style={styles.labels}> Enter score: {sliderValue} </Text>
+            <Slider style={{ width: 280 }} value={sliderValue} minimumValue={0} maximumValue={10} step={1} onValueChange = {(val) => {setSliderValue(val)}} />
 
 		<Text> {"\n"} </Text>
 
-		<Text> Enter play time (in hours): {inputPlayTime} </Text>
-		<TextInput style={{ height: 40, width: 40, borderColor: 'gray', borderWidth: 1}}
+            <Text style={styles.labels}> Enter play time (in hours): {inputPlayTime} </Text>
+            <TextInput style={styles.smallInputs}
 		onChangeText ={text3 => setInputPlayTime(text3)}
 		/>
 
 		<Text> {"\n"} </Text>
 
-		<Text> What did you think about the game? </Text>
-		<TextInput style={{ height: 100, width: 150,borderColor: 'gray', borderWidth: 1}}
+            <Text style={styles.labels}> What did you think about the game? </Text>
+            <TextInput style={styles.largeInputs}
+                multiline
+                numberOfLines={4}
 		onChangeText ={text4 => setInputReview(text4)}
 		/>
 
@@ -58,10 +63,37 @@ function CreatePostScreen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+    },
+    inputs: {
+        borderColor: 'gray',
+        borderWidth: 1,
+        backgroundColor: 'white',
+        height: 40,
+        width: 120,
+    },
+    smallInputs: {
+        borderColor: 'gray',
+        borderWidth: 1,
+        backgroundColor: 'white',
+        height: 40,
+        width: 40,
+    },
+    largeInputs: {
+        borderColor: 'gray',
+        borderWidth: 1,
+        backgroundColor: 'white',
+        height: 100,
+        width: 150,
+        textAlign: 'left',
+    },
+    labels: {
+        fontSize: 24,
+        color: 'white',
+        fontWeight: 'bold',
+    },
 });
 
 const mapStateToProps = (state) => {
