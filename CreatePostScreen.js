@@ -7,8 +7,8 @@ import { addFriend } from './gameActions';
 function CreatePostScreen(props) {
 	const [inputTitle, setInputTitle] = useState("title");
 	const [inputReview, setInputReview] = useState("null");
-	const [inputPlayTime, setInputPlayTime] = useState("0");
-	const [sliderValue, setSliderValue] = useState(5);
+	const [inputPlayTime, setInputPlayTime] = useState("");
+	const [scoreValue, setscoreValue] = useState("");
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#05c131' }}>
             <Image
@@ -22,8 +22,10 @@ function CreatePostScreen(props) {
 
 		<Text> {"\n"} </Text>
 
-            <Text style={styles.labels}> Enter score: {sliderValue} </Text>
-            <Slider style={{ width: 280 }} value={sliderValue} minimumValue={0} maximumValue={10} step={1} onValueChange = {(val) => {setSliderValue(val)}} />
+            <Text style={styles.labels}> Enter score: {scoreValue} </Text>
+            <TextInput style={styles.inputs}
+		onChangeText ={text2 => setscoreValue(text2)}
+		/>
 
 		<Text> {"\n"} </Text>
 
@@ -46,7 +48,7 @@ function CreatePostScreen(props) {
 		
 		<Button style={{marginBottom: 100}}
 			
-				onPress={() => props.addFriend(inputTitle, parseInt(sliderValue), inputPlayTime, inputReview)}
+				onPress={() => props.addFriend(inputTitle, parseInt(scoreValue), inputPlayTime, inputReview)}
 				
 			title='Add Review'
 		  />
