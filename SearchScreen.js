@@ -30,7 +30,7 @@ export function SearchScreen({ navigation }) {
         <TouchableHighlight
             //onpress open a new page with that game/review/whatever
             underlayColor="red">
-            
+
             <Text style={styles.row}>{input.item.key}: {input.item.name} </Text>
         </TouchableHighlight> 
 
@@ -38,11 +38,28 @@ export function SearchScreen({ navigation }) {
     );
 
     const _search = () => {
-        console.log("searching");
+        console.log("searching:");
+        console.log("T- " + searchTitle);
+        console.log("S- " + searchMinScore);
+        console.log("P- " + searchMinPT);
         setResult(theData);
 
         if (searchTitle != "null" && searchTitle != "") {
             //setResult(result.filter(checkTitle));
+        }
+
+        if (searchMinScore == "") {
+            setSearchMinScore(0);
+        }
+        else {
+            setSearchMinScore(parseFloat(searchMinScore));
+        }
+
+        if (searchMinPT == "") {
+            setSearchMinPT(0);
+        }
+        else {
+            setSearchMinPT(parseFloat(searchMinPT));
         }
 
         setResult(result.filter(checkAboveScore));
@@ -52,16 +69,20 @@ export function SearchScreen({ navigation }) {
 
     const checkTitle = (item) => {
         
-        //setTempTitle(item.title);
-        //console.log(tempTitle.substring(0, searchTitle.length) + " and " + searchTitle);
+        setTempTitle(item.title);
+        console.log(tempTitle.substring(0, searchTitle.length) + " and " + searchTitle);
         //return tempTitle.substring(0, searchTitle.length) == searchTitle.toLowerCase() || tempTitle.substring(0, searchTitle.length) == searchTitle;
+        return true;
     }
 
     const checkAboveScore = (item) => {
+        console.log(item.avgScore + " and " + searchMinScore);
+        console.log(item.avgScore >= setSearchMinScore);
         return item.avgScore >= setSearchMinScore;
     }
 
     const checkAbovePT = (item) => {
+        console.log(item.avgPT + " and " + searchMinPT);
         return item.avgPT >= setSearchMinPT;
     }
 
@@ -81,7 +102,7 @@ export function SearchScreen({ navigation }) {
 
             <TextInput style={styles.inputs}
                 onChangeText={text => setSearchMinPT(text)}
-                placeholder={"Enter Minimum Plat Time"}
+                placeholder={"Enter Minimum Play Time"}
             />
             <Text>Search results</Text>
             <FlatList data={result} style={{ flex: 2, backgroundColor: '#05c131' }}
