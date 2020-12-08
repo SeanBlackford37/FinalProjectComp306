@@ -55,7 +55,7 @@ const remItem = (title) => {
 		array.splice(index, 1);
 		setData([...array]);
 
-		alert("You've removed a person");
+		alert("You've removed a review!");
 		} else {
 			alert("No Review Under That To Remove");
 		}
