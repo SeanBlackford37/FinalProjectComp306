@@ -31,6 +31,7 @@ function SearchScreen(props) {
         }
         
     }
+
     let [result, setResult] = useState(list);
     let [searchTitle, setSearchTitle] = useState("null");
     let [searchMinScore, setSearchMinScore] = useState(0);
