@@ -44,8 +44,15 @@ function SearchScreen(props) {
         <TouchableOpacity 
             onPress={() =>  props.navigation.navigate('PostDetails',{picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime})}>
             <View style={{padding: 20}}>
-           
-            <Text style={{padding: 20, textAlign: 'center', borderColor:'black', borderWidth: 5}}> {input.item.gameName} {'\n'} </Text>
+
+                <Text style={{
+                    padding: 20, textAlign: 'center',
+                    borderColor: 'white',
+                    borderWidth: 5,
+                    backgroundColor: '#05c131',
+                    fontSize: 24,
+                    color: 'white',
+                    fontWeight: 'bold' }}> {input.item.gameName} {'\n'} </Text>
             </View>
         </TouchableOpacity>
 
@@ -115,7 +122,7 @@ function SearchScreen(props) {
     }
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#05c131' }}>
             <Text>Search input</Text>
             
                 
@@ -133,7 +140,7 @@ function SearchScreen(props) {
                 placeholder={"Enter Minimum Play Time"}
             /> */}
             <Text>Search results</Text>
-            <FlatList data={result} style={{ flex: 2, backgroundColor: '#05c131' }}
+            <FlatList data={result} style={{ flex: 2, backgroundColor: '#038f24' }}
 
                     renderItem={_renderItem} 
                     
