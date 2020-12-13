@@ -53,6 +53,9 @@ function HomeScreen(props)  {
         for(var r = 0; r < avg.length;r++){
           if(inputTwo[i].gameName == avg[r].gameName ){
              inputTwo[i].added = "yes"
+             inputTwo[i].avgPlayTime = avg[r].avgPlayTime
+             inputTwo[i].numberOfReviews = avg[r].numberOfReviews
+             inputTwo[i].avgScore = avg[r].avgScore
               reviewList.push({PostID: inputTwo[i].PostID,gameName: inputTwo[i].gameName, picture:inputTwo[i].picture,
                 numberOfReviews: avg[r].numberOfReviews, avgScore: avg[r].avgScore,avgPlayTime: avg[r].avgPlayTime, added: "yes"})
                 r = avg.length+1
@@ -69,7 +72,8 @@ function HomeScreen(props)  {
     
   } 
   const ConTwoDecDigit=(digit)=>{
-    return digit.toFixed(2)
+    var num = digit
+    return num.toFixed(2)
   }
   
     

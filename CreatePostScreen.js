@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { StyleSheet, Text, View, Button, TextInput, Slider, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Slider, Image, ScrollView } from 'react-native';
 import { addFriend } from './gameActions';
+
+
 
 function CreatePostScreen(props) {
 	const [inputTitle, setInputTitle] = useState("title");
@@ -58,6 +60,9 @@ function CreatePostScreen(props) {
             props.navigation.navigate('Home')
           }
         />
+     
+
+        
       </View>
     );
 }

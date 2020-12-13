@@ -27,7 +27,8 @@ export function PostDetailsScreen(props) {
      }
   }
   const ConTwoDecDigit=(digit)=>{
-    return digit.toFixed(2)
+    var num = digit
+    return num.toFixed(2)
   }
   const [input, setData] = useState(reviewList)
    

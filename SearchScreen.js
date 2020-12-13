@@ -33,7 +33,14 @@ function SearchScreen(props) {
     const _renderItem = input => (
 
         <TouchableOpacity 
-            onPress={() =>  props.navigation.navigate('PostDetails',{picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime})}>
+            onPress={() =>  props.navigation.navigate('PostDetails',{
+            picture: input.item.picture,
+            gameName:input.item.gameName,
+            userScore:input.item.userScore, 
+            postContent:input.item.postContent, 
+            playTime:input.item.playTime,
+            avgScore: input.item.avgScore,
+            avgPlayTime: input.item.avgPlayTime})}>
             <View style={{padding: 20}}>
 
                 <Text style={{
