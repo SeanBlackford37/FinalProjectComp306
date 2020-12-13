@@ -10,16 +10,7 @@ import { connect } from 'react-redux';
 function SearchScreen(props) {
 
     const [input, setDataTwo] = useState(props.gameList.current);  
-    let theData = [
-        { key: "1",  name: "Minecraft", avgScore: 8.8, avgPT: 1000 },
-        { key: "2", name: "Rocket League", avgScore: 7, avgPT: 250 },
-        { key: "3", name: "God Of War", avgScore: 8.7, avgPT: 20 },
-        { key: "4", name: "Spider-Man: Miles Morales", avgScore: 9.3, avgPT: 10 },
-        { key: "5", name: "Minecraft: Dungeons", avgScore: 8.8, avgPT: 1000 },
-        { key: "6", name: "Spiderman", avgScore: 7, avgPT: 250 },
-        { key: "7", name: "Dark Souls", avgScore: 8.7, avgPT: 20 },
-        { key: "8", name: "Mad Max", avgScore: 9.3, avgPT: 10 },
-    ];
+    
     
     
     let list = []

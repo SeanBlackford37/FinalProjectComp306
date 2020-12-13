@@ -48,7 +48,7 @@ function CreatePostScreen(props) {
 		
 		<Button style={{marginBottom: 100}}
 			
-				onPress={() => props.addFriend(inputTitle, parseInt(scoreValue), inputPlayTime, inputReview)}
+				onPress={() => props.addFriend(inputTitle, parseInt(scoreValue), parseInt(inputPlayTime), inputReview)}
 				
 			title='Add Review'
 		  />

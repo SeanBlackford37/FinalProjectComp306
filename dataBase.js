@@ -4,13 +4,14 @@ import { combineReducers } from 'redux';
 
 let DATA = [
     { PostID: "abcd", 
-      gameName: "Mario Cart", 
+      gameName: "Mario Kart", 
       userScore: 6, 
       postContent: "Review",
       profilePic: "https://i.imgur.com/PRdZe1d.png",
       picture: "https://target.scene7.com/is/image/Target/GUEST_57bbec2f-28e8-40ab-885a-ae1976302fdd?wid=488&hei=488&fmt=pjpeg",
       playTime: 1.5,
       firstPost: "True",
+      added: "no",
     },
     { PostID: "abcde", 
       gameName: "Spider-man Miles Morales", 
@@ -20,6 +21,7 @@ let DATA = [
       picture: "https://image.api.playstation.com/vulcan/ap/rnd/202008/1420/HcLcfeQBXd2RiQaCeWQDCIFN.jpg",
       playTime: 15,
       firstPost: "True",
+      added: "no",
     },
     { PostID: "abcdef", 
       gameName: "Minecraft", 
@@ -29,15 +31,17 @@ let DATA = [
       picture: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
       playTime: 100,
       firstPost: "True",
+      added: "no",
     },
     { PostID: "abcdefg", 
-    gameName: "Mario Cart",
+    gameName: "Mario Kart",
     profilePic: "https://i.imgur.com/PRdZe1d.png",
-    userScore: 6, 
+    userScore: 10, 
     postContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     picture: "https://target.scene7.com/is/image/Target/GUEST_57bbec2f-28e8-40ab-885a-ae1976302fdd?wid=488&hei=488&fmt=pjpeg",
     playTime: 1.5,
     firstPost: "False",
+    added: "no",
   },
   { PostID: "05", 
     gameName: "Spider-man Miles Morales",
@@ -47,6 +51,7 @@ let DATA = [
     picture: "https://target.scene7.com/is/image/Target/GUEST_57bbec2f-28e8-40ab-885a-ae1976302fdd?wid=488&hei=488&fmt=pjpeg",
     playTime: 15,
     firstPost: "False",
+    added: "no",
   },
   { PostID: "06", 
     gameName: "Minecraft",
@@ -54,8 +59,9 @@ let DATA = [
     userScore: 10, 
     postContent: "xcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     picture: "https://target.scene7.com/is/image/Target/GUEST_57bbec2f-28e8-40ab-885a-ae1976302fdd?wid=488&hei=488&fmt=pjpeg",
-    playTime: 100,
+    playTime: 5,
     firstPost: "False",
+    added: "no",
   },
   
     ];
@@ -99,12 +105,12 @@ const gameReviews = (state = INITIAL_STATE, action)  => {
         }
       }
       if(count == 0){
-        current.push({PostID: ID, profilePic: "https://static.wikia.nocookie.net/xbox/images/d/d6/Orange-black-skull.jpg/revision/latest/top-crop/width/300/height/300?cb=20200426103335", firstPost: "True", gameName: action.gameName, playTime: action.playTime, userScore: action.score,  postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png"});
-        current.push({PostID: ID + "5", profilePic: "https://static.wikia.nocookie.net/xbox/images/d/d6/Orange-black-skull.jpg/revision/latest/top-crop/width/300/height/300?cb=20200426103335", firstPost: "False", gameName: "Mario Cart", playTime: action.playTime, userScore: action.score,  postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png"});
+        current.push({PostID: ID, profilePic: "https://static.wikia.nocookie.net/xbox/images/d/d6/Orange-black-skull.jpg/revision/latest/top-crop/width/300/height/300?cb=20200426103335", firstPost: "True", gameName: action.gameName, playTime: action.playTime, userScore: action.score,  postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png", added: "no"});
+        current.push({PostID: ID + "5", profilePic: "https://static.wikia.nocookie.net/xbox/images/d/d6/Orange-black-skull.jpg/revision/latest/top-crop/width/300/height/300?cb=20200426103335", firstPost: "False", gameName: "Mario Cart", playTime: action.playTime, userScore: action.score,  postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png", added: "no"});
         Alert.alert("Added game!")
         
       }else{
-        current.push({PostID: ID, profilePic: "https://static.wikia.nocookie.net/xbox/images/d/d6/Orange-black-skull.jpg/revision/latest/top-crop/width/300/height/300?cb=20200426103335", firstPost: "False", gameName: action.gameName, playTime: action.playTime, userScore: action.score,  postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png"});
+        current.push({PostID: ID, profilePic: "https://static.wikia.nocookie.net/xbox/images/d/d6/Orange-black-skull.jpg/revision/latest/top-crop/width/300/height/300?cb=20200426103335", firstPost: "False", gameName: action.gameName, playTime: action.playTime, userScore: action.score,  postContent: action.review, picture:"https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png", added:"no"});
         Alert.alert("Added review!")
       }
       //console.log(reviewListC)

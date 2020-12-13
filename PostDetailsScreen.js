@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 
 
 export function PostDetailsScreen(props) {
-  const {gameName,userScore,postContent, playTime, picture,firstPost, PostID} = props.route.params;
+  const {gameName,userScore,postContent, playTime, picture,firstPost, PostID, avgPlayTime, avgScore} = props.route.params;
   const [inputTwo, setDataTwo] = useState(props.gameList.current);  
   // let item = input[0].firstPost
   // console.log(item)
@@ -26,7 +26,9 @@ export function PostDetailsScreen(props) {
         
      }
   }
-  
+  const ConTwoDecDigit=(digit)=>{
+    return digit.toFixed(2)
+  }
   const [input, setData] = useState(reviewList)
    
   const _renderItem = input => (
@@ -47,8 +49,8 @@ return (
       <Image style={{width:200, height:200, padding: 20}} source={{uri: picture}}/>
       <Text>Game Title: {gameName}</Text>
       
-      <Text>Average Score: {userScore}</Text>
-      <Text>Avgerage Play Time: {playTime} hrs</Text>
+      <Text>Average Score: {ConTwoDecDigit(avgScore)}</Text>
+      <Text>Avgerage Play Time: {ConTwoDecDigit(avgPlayTime)} hrs</Text>
       <FlatList data={input}
           
           renderItem={_renderItem}

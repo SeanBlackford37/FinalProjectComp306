@@ -6,41 +6,85 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styles from './Styles'
 import { connect } from 'react-redux';
 
-
+let avg = [
+    {
+      gameName: "testOne",
+      avgScore: 6,
+      avgPlaytime: 10,
+      numberOfReviews: 5,
+    }
+]
 
 
 function HomeScreen(props)  {
   
-  const [inputTwo, setDataTwo] = useState(props.gameList.current);  
+  const [inputTwo, setDataTwo] = useState(props.gameList.current); 
+  
     
   // let item = input[0].firstPost
   // console.log(item)
+  
+ var count = 0
+  for(var j = 0; j < inputTwo.length; j++){
+    count  = 0
+      for(var m = 0; m < avg.length; m++){
+          if(inputTwo[j].gameName == avg[m].gameName && inputTwo[j].added == "no"){
+            
+            inputTwo[j].added = "yes"
+            avg[m].numberOfReviews += 1;
+            avg[m].avgScore = (avg[m].avgScore + inputTwo[j].userScore) / avg[m].numberOfReviews
+            avg[m].avgPlayTime = (avg[m].avgPlayTime + inputTwo[j].playTime)
+            
+          }else if(inputTwo[j].added == "no"){
+          count +=1
+        }
+      }
+      
+      if(count >= avg.length){
+        avg.push({gameName:inputTwo[j].gameName, numberOfReviews: 1, avgScore:inputTwo[j].userScore, avgPlayTime:inputTwo[j].playTime})
+      }
+  }
+  
   let reviewList = []
- 
   for(var i = 0; i < inputTwo.length; i++){
      
      if(inputTwo[i].firstPost == "True"){
-        reviewList.push(inputTwo[i])
         
+        for(var r = 0; r < avg.length;r++){
+          if(inputTwo[i].gameName == avg[r].gameName ){
+             inputTwo[i].added = "yes"
+              reviewList.push({PostID: inputTwo[i].PostID,gameName: inputTwo[i].gameName, picture:inputTwo[i].picture,
+                numberOfReviews: avg[r].numberOfReviews, avgScore: avg[r].avgScore,avgPlayTime: avg[r].avgPlayTime, added: "yes"})
+                r = avg.length+1
+            }
+        }
      }
      
   }
+  
   const [input, setData] = useState(reviewList)
   
   const _update = () =>{
     setData(reviewList)
+    
   } 
-     
-  const _renderItem = input => (
-        
+  const ConTwoDecDigit=(digit)=>{
+    return digit.toFixed(2)
+  }
+  
+    
+  const _renderItem = (input) => (
+      
        <TouchableOpacity 
-            onPress={() =>  props.navigation.navigate('PostDetails',{picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime})}>
+            onPress={() =>  props.navigation.navigate('PostDetails',{avgScore: input.item.avgScore, avgPlayTime:input.item.avgPlayTime, picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime})}>
             <View style={{flexDirection: "row"}}>
+              
+              
             <Image style={{width:150, height:150, padding: 20}} source={{uri: input.item.picture}}/>
-            <Text style={{padding: 20, textAlign: 'center'}}>--- Reviews {'\n'} 
+            <Text style={{padding: 20, textAlign: 'center'}}>{input.item.numberOfReviews} Reviews {'\n'} 
             <Text></Text>
-            Avg Score: -- {'\n\n'} 
-            Avg Play Time: {'\n\t'} --- Hours  </Text>
+            Avg Score: {ConTwoDecDigit(input.item.avgScore)} {'\n\n'} 
+            Avg Play Time: {'\n\t'} {ConTwoDecDigit(input.item.avgPlayTime)} Hours  </Text>
             </View>
         </TouchableOpacity>
      
