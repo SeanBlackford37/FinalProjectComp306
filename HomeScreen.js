@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Text, View, FlatList, TouchableHighlight, Alert, Image, TouchableOpacity, RecyclerViewBackedScrollViewComponent } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styles from './Styles'
 import { connect } from 'react-redux';
 

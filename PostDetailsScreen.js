@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
 import { Button, Text, View, FlatList, TouchableHighlight, Alert, Image, TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import styles from './Styles'
-import {HomeScreen} from './HomeScreen.js'
-import {SearchScreen} from './SearchScreen.js'
 import { connect } from 'react-redux';
 
 
@@ -15,8 +9,7 @@ import { connect } from 'react-redux';
 export function PostDetailsScreen(props) {
   const {gameName,userScore,postContent, playTime, picture,firstPost, PostID, avgPlayTime, avgScore} = props.route.params;
   const [inputTwo, setDataTwo] = useState(props.gameList.current);  
-  // let item = input[0].firstPost
-  // console.log(item)
+  
   let reviewList = []
  
   for(var i = 0; i < inputTwo.length; i++){

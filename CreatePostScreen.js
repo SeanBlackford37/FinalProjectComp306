@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { StyleSheet, Text, View, Button, TextInput, Slider, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image} from 'react-native';
 import { addFriend } from './gameActions';
-
+import Slider from '@react-native-community/slider';
 
 
 function CreatePostScreen(props) {
 	const [inputTitle, setInputTitle] = useState("title");
 	const [inputReview, setInputReview] = useState("null");
 	const [inputPlayTime, setInputPlayTime] = useState("");
-	const [scoreValue, setscoreValue] = useState("");
+	const [scoreValue, setscoreValue] = useState(5);
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#05c131' }}>
             <Image
@@ -25,9 +25,17 @@ function CreatePostScreen(props) {
 		<Text> {"\n"} </Text>
 
             <Text style={styles.labels}> Enter score: {scoreValue} </Text>
-            <TextInput style={styles.inputs}
-		onChangeText ={text2 => setscoreValue(text2)}
-		/>
+            <Slider
+      style={styles.row, {height:100, width:200}}
+      step={.25}
+      minimumValue={1}
+      maximumValue={10}
+      minimumTrackTintColor="#CC0001"
+      maximumTrackTintColor="#55B54C"
+      value={scoreValue}
+      onValueChange={text2 => setscoreValue(text2)}
+    />
+        
 
 		<Text> {"\n"} </Text>
 
@@ -100,6 +108,12 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: 'white',
         fontWeight: 'bold',
+    },
+    row: {
+    flex:1,
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
     },
 });
 
