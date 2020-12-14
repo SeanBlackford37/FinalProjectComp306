@@ -17,7 +17,7 @@ const randId = () => {
       return ID
 }
 //Creates a random numbers of posts to fill content
-var numOfPosts = Math.floor(Math.random() * 40) + 10;
+var numOfPosts = Math.floor(Math.random() * 60) + 20;
 for(var i = 0; i < numOfPosts; i++){
    var randomID = randId()
    let game = DATA[Math.floor(Math.random() * DATA.length)]
