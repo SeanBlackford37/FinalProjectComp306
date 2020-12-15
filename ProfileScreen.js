@@ -166,6 +166,48 @@ const remItem = (title) => {
 		</View>
 		</Modal>
 
+	<Modal
+			animationType="slide"
+			transparent={true}
+			visible={modalVisible}
+			onRequestClose={() => {
+				alert("Modal has been closed");
+			}}
+		>
+		<View style = {{
+    		flex: 1,
+    		justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: '#44c061'
+  		}}>
+		<View style={styles.modalView}>
+		<TextInput
+          		style={{borderStyle: 'solid', borderColor: 'black', 
+			backgroundColor: 'lightgray', borderRadius: 10, padding: 15}}
+
+          		onChangeText={(text) => onChangeText(text)}
+          		value={value}
+       		/>
+
+		<TouchableHighlight
+			style = {{borderRadius: 10}}
+			onPress={() =>{ remItem(value); }}>
+			<Text style={{padding: 15, backgroundColor: 'pink'}}>Remove</Text>
+		</TouchableHighlight>
+
+		<TouchableHighlight
+			onPress={() => { setModalVisible(!modalVisible); }}>
+		<Text style={{fontWeight: "bold", padding: 15, backgroundColor: "#bad8e0"}}>Close</Text>
+		</TouchableHighlight>
+		
+		</View>
+		</View>
+		</Modal>
+
+
+
+
+
 
 
 
