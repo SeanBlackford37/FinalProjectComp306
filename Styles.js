@@ -84,7 +84,7 @@ import {StyleSheet} from 'react-native';
 	position: 'absolute',
 	left: 90,
 	top: 200,
-    	backgroundColor: "#bad8e0",
+    	backgroundColor: "white",
     	padding: 10,
 	borderRadius: 10
 },
@@ -93,7 +93,7 @@ item: {
     marginHorizontal: 10,
     marginTop: 24,
     padding: 30,
-    backgroundColor: "lightblue",
+    backgroundColor: "lightgreen",
     fontSize: 24
      },
      inputs: {

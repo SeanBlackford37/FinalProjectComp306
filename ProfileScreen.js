@@ -11,28 +11,32 @@ export function ProfileScreen({ navigation }) {
 	title: "Batman",
 	rating: 5,
 	review: "The game makes you FEEL like batman",
-	playtime:  50
+	playtime:  50,
+	imageURI: "https://cnet1.cbsistatic.com/img/LI9YOIflZgH_srkJAz8R0i0bDjw=/1200x675/2015/06/14/8351c430-f382-4bae-b7d7-ef2938d29730/batman-arkham-knight-screen.jpg"
 },
 {
 	id: '2',
 	title: "Spiderman",
 	rating: 10,
 	review: "Gives you the exaggerated swagger of a black teen",
-	playtime: 30
+	playtime: 30,
+	imageURI: "https://upload.wikimedia.org/wikipedia/en/a/a3/Spider-Man_Miles_Morales.jpeg"
 },
 {
 	id: '3',
 	title: "God of War",
 	rating: 9,
 	review: "Great game, boy",
-	playtime: 45
+	playtime: 45,
+	imageURI: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/God_of_War_4_cover.jpg/220px-God_of_War_4_cover.jpg"
 },
 {
 	id: '4', 
 	title: "Street Fighter V",
 	rating: 8,
 	review: "Fighting Streets has never been so easy",
-	playtime: 50
+	playtime: 50,
+	imageURI: "https://image.api.playstation.com/vulcan/img/cfn/11307MTvkumhOsLQiA_3g0ZbFhLnHOOWVw3qR4Rum7sKAh8I3THtbG0aa-P7dF7-miXzo1ceqN897MfxYZ7Qx-GaEZs8kq4X.png"
 }
 ]);
 
@@ -112,6 +116,7 @@ const remItem = (title) => {
        		/>
 
 		<TouchableHighlight
+			style = {{borderRadius: 10}}
 			onPress={() =>{ remItem(value); }}>
 			<Text style={{padding: 15, backgroundColor: 'pink'}}>Remove</Text>
 		</TouchableHighlight>
@@ -133,7 +138,7 @@ const remItem = (title) => {
 		}}>Reviews</Text>
 		<TouchableHighlight
 			style={{
-			backgroundColor: "#bad8e0",
+			backgroundColor: "white",
     			padding: 10,
 			borderRadius: 10,
 			alignSelf: 'center'}}
@@ -146,15 +151,20 @@ const remItem = (title) => {
 			data={temp_data}
 			renderItem={({ item }) => {
                 return (
-                    <View >
+			<View style={{flex: 1, flexDirection: 'row', backgroundColor: 'lightgreen', borderWidth: 1 }}>
+			<Image
+				source={{uri: item.imageURI}}
+				style={{width: 100, height: 100, margin: 10, borderRadius: 15}}/>
+			<View>
                         <TouchableHighlight 
-                            style={{ backgroundColor: '#05c131' }}
+                            style={{ backgroundColor: 'lightgreen'}}
 						onPress={() => {alert("\nGame: " + item.title + 
 									"\nRating: "+item.rating +
 									"\nReview: "+item.review +
 									"\nPlay Time: "+item.playtime+"hrs");}}>
 						<Text style={styles.item}> {item.title} </Text>
                         </TouchableHighlight>
+			</View>
                         </View>
 					);
 					}}
