@@ -65,12 +65,13 @@ const remItem = (title) => {
 	const [value, onChangeText] = React.useState("Enter Game Here");
 	const [username, onChangeUsername] = React.useState("Default_Username");
 	const [aboutMe, onChangeAboutMe] = React.useState("Default_aboutMe");
+	const [profileImage, setImage] = React.useState("https://icons-for-free.com/iconfiles/png/512/customer+information+personal+profile+user+icon-1320086045331670685.png");
 
     return (
         <React.Fragment>
             <View style={{ flex: 1, backgroundColor: '#05c131' }}>
 	<Image
-		source={require('./images/default_profile.png')}
+		source={{uri: profileImage}}
 		style={styles.profilePicture}
 	/>
 	<Text style={styles.profileInfoHeader}>
@@ -125,6 +126,35 @@ const remItem = (title) => {
           		onChangeText={(text) => onChangeAboutMe(text)}
           		value={aboutMe}
        		/>
+		<Text style={{fontWeight: 'bold', padding: 10}}>Change Profile Picture</Text>
+
+		<TouchableHighlight onPress={()=> {setImage("https://i.pinimg.com/originals/ed/92/32/ed9232764bbfeaf0c47b0f07eaab6f68.jpg"); alert("Changed")}}>
+		<Image
+				source={{uri: "https://i.pinimg.com/originals/ed/92/32/ed9232764bbfeaf0c47b0f07eaab6f68.jpg" }}
+				style={{width: 100, height: 100, margin: 10, borderRadius: 15}}
+				/>
+		</TouchableHighlight>
+
+		<TouchableHighlight onPress={()=> {setImage("https://wallpaperaccess.com/full/2213426.jpg"); alert("Changed")}}>
+		<Image
+				source={{uri: "https://wallpaperaccess.com/full/2213426.jpg" }}
+				style={{width: 100, height: 100, margin: 10, borderRadius: 15}}
+				/>
+		</TouchableHighlight>
+
+		<TouchableHighlight onPress={()=> {setImage("https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/115909667/original/7d79dd80b9eecaa289de1bc8065ad44aa03e2daf/do-a-simple-but-cool-profile-pic-or-logo-for-u.jpeg"); alert("Changed")}}>
+		<Image
+				source={{uri: "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/115909667/original/7d79dd80b9eecaa289de1bc8065ad44aa03e2daf/do-a-simple-but-cool-profile-pic-or-logo-for-u.jpeg" }}
+				style={{width: 100, height: 100, margin: 10, borderRadius: 15}}
+				/>
+		</TouchableHighlight>
+
+		<TouchableHighlight onPress={()=> {setImage("https://i.pinimg.com/564x/04/bb/21/04bb2164bbfa3684118a442c17d086bf.jpg"); alert("Changed")}}>
+		<Image
+				source={{uri: "https://i.pinimg.com/564x/04/bb/21/04bb2164bbfa3684118a442c17d086bf.jpg" }}
+				style={{width: 100, height: 100, margin: 10, borderRadius: 15}}
+				/>
+		</TouchableHighlight>
 
 		<TouchableHighlight
 			style = {{padding: 1, borderRadius: 5, backgroundColor:"#bad8e0" }}
