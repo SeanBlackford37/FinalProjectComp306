@@ -30,7 +30,7 @@ function HomeScreen(props)  {
             inputTwo[j].added = "yes"
             avg[m].numberOfReviews += 1;
             avg[m].avgScore = (avg[m].avgScore + inputTwo[j].userScore) / avg[m].numberOfReviews
-            avg[m].avgPlayTime = (avg[m].avgPlayTime + inputTwo[j].playTime)
+            avg[m].avgPlayTime = (avg[m].avgPlayTime + inputTwo[j].playTime) / avg[m].numberOfReviews
             
           }else if(inputTwo[j].added == "no"){
           count +=1
