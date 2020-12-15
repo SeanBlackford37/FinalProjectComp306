@@ -79,6 +79,8 @@ import {StyleSheet} from 'react-native';
 	left: 250,
 	top: 80,
 	borderWidth: 2,
+	color: 'white',
+	padding: 10
 },
 	editProfile: {
 	position: 'absolute',

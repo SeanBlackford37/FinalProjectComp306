@@ -61,7 +61,10 @@ const remItem = (title) => {
 	};
 
 	const [modalVisible, setModalVisible] = useState(false);
+	const [modal2Visible, setModal2Visible] = useState(false);
 	const [value, onChangeText] = React.useState("Enter Game Here");
+	const [username, onChangeUsername] = React.useState("Default_Username");
+	const [aboutMe, onChangeAboutMe] = React.useState("Default_aboutMe");
 
     return (
         <React.Fragment>
@@ -73,29 +76,28 @@ const remItem = (title) => {
 	<Text style={styles.profileInfoHeader}>
 		Info
 	</Text>
-	<Text style={styles.profileText} onPress={()=>alert("Can't Edit Until Database Functional")}>
-		default_username{"\n"}
-		default_real_name{"\n"}
-		default_age{"\n"}
-		default_genre_pref{"\n"}
-		default_num_posts{"\n"}
-		default_profile_age{"\n"}
+	<Text style={styles.profileText}>
+		Username: {"\n"}
+		{username}{"\n"}
+		{"\n"}
+		 About Me: {"\n"}
+		{aboutMe}
 	</Text>
 
 	<TouchableOpacity style={styles.editProfile} 
-	onPress={()=>alert("Can't Edit Until Database Functional")}>
+	onPress={() => {setModal2Visible(true)}}>
 		<Text>Edit Profile</Text>
 	</TouchableOpacity>
 	
 	
             </View>
+
             <View style={{ flex: 1, backgroundColor: '#05c131' }}>
-		
 		
 		<Modal
 			animationType="slide"
 			transparent={true}
-			visible={modalVisible}
+			visible={modal2Visible}
 			onRequestClose={() => {
 				alert("Modal has been closed");
 			}}
@@ -107,28 +109,35 @@ const remItem = (title) => {
                         backgroundColor: '#44c061'
   		}}>
 		<View style={styles.modalView}>
+		<Text style={{fontWeight: 'bold', padding: 10}}>Change Username</Text>
 		<TextInput
           		style={{borderStyle: 'solid', borderColor: 'black', 
 			backgroundColor: 'lightgray', borderRadius: 10, padding: 15}}
 
-          		onChangeText={(text) => onChangeText(text)}
-          		value={value}
+          		onChangeText={(text) => onChangeUsername(text)}
+          		value={username}
+       		/>
+		<Text style={{fontWeight: 'bold', padding: 10}}>Tell Us About Yourself</Text>
+		<TextInput
+          		style={{borderStyle: 'solid', borderColor: 'black', 
+			backgroundColor: 'lightgray', borderRadius: 10, padding: 15}}
+
+          		onChangeText={(text) => onChangeAboutMe(text)}
+          		value={aboutMe}
        		/>
 
 		<TouchableHighlight
-			style = {{borderRadius: 10}}
-			onPress={() =>{ remItem(value); }}>
-			<Text style={{padding: 15, backgroundColor: 'pink'}}>Remove</Text>
-		</TouchableHighlight>
-
-		<TouchableHighlight
-			onPress={() => { setModalVisible(!modalVisible); }}>
+			style = {{padding: 1, borderRadius: 5, backgroundColor:"#bad8e0" }}
+			onPress={() => { setModal2Visible(!modal2Visible); }}>
 		<Text style={{fontWeight: "bold", padding: 15, backgroundColor: "#bad8e0"}}>Close</Text>
 		</TouchableHighlight>
 		
 		</View>
 		</View>
 		</Modal>
+
+
+
 
 		<Text style={{
 		fontWeight: "bold",
