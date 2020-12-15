@@ -30,8 +30,8 @@ export function PostDetailsScreen(props) {
     <TouchableOpacity 
          onPress={() =>  props.navigation.navigate('IndividualReview',{picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime, profilePic: input.item.profilePic})}>
          <View style={{flexDirection: "row"}}>
-         <Image style={{width:75, height:75, padding: 20}} source={{uri: input.item.profilePic}}/>
-         <Text  style={{padding: 10, textAlign: 'center'}}>{input.item.postContent.substring(0, 20)}... </Text>
+              <Image style={{ width: 75, height: 75, padding: 20 }} source={{ uri: input.item.profilePic }} />
+              <Text style={{ padding: 10, textAlign: 'center', color: 'white' }}>{input.item.postContent.substring(0, 20)}... </Text>
          </View>
      </TouchableOpacity>
   
@@ -39,12 +39,17 @@ export function PostDetailsScreen(props) {
    );
 
 return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Image style={{width:200, height:200, padding: 20}} source={{uri: picture}}/>
-      <Text>Game Title: {gameName}</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#05c131' }}>
+        <Image
+            source={require('./images/VelpLogoFull.png')}
+            style={{ height: 100, width: 200 }}
+        />
+        <Image style={{ width: 200, height: 200, padding: 20 }} source={{ uri: picture }} />
+        
+        <Text style={{color: 'white'}} >Game Title: {gameName}</Text>
       
-      <Text>Average Score: {ConTwoDecDigit(avgScore)}</Text>
-      <Text>Avgerage Play Time: {ConTwoDecDigit(avgPlayTime)} hrs</Text>
+        <Text style={{ color: 'white' }}>Average Score: {ConTwoDecDigit(avgScore)}</Text>
+        <Text style={{ color: 'white' }}>Avgerage Play Time: {ConTwoDecDigit(avgPlayTime)} hrs</Text>
       <FlatList data={input}
           
           renderItem={_renderItem}

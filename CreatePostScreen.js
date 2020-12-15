@@ -31,7 +31,7 @@ function CreatePostScreen(props) {
       minimumValue={1}
       maximumValue={10}
       minimumTrackTintColor="#CC0001"
-      maximumTrackTintColor="#55B54C"
+      maximumTrackTintColor="black"
       value={scoreValue}
       onValueChange={text2 => setscoreValue(text2)}
     />

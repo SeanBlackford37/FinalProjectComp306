@@ -76,13 +76,14 @@ function HomeScreen(props)  {
     
   const _renderItem = (input) => (
       
-       <TouchableOpacity 
+      <TouchableOpacity
+          style={{borderRadius: 3, borderColor: 'white'}}
             onPress={() =>  props.navigation.navigate('PostDetails',{avgScore: input.item.avgScore, avgPlayTime:input.item.avgPlayTime, picture: input.item.picture,gameName:input.item.gameName,userScore:input.item.userScore, postContent:input.item.postContent, playTime:input.item.playTime})}>
-            <View style={{flexDirection: "row"}}>
+          <View style={{ flexDirection: "row", borderRadius: 3, borderColor: 'white'}}>
               
               
-            <Image style={{width:150, height:150, padding: 20}} source={{uri: input.item.picture}}/>
-            <Text style={{padding: 20, textAlign: 'center'}}>{input.item.numberOfReviews} Reviews {'\n'} 
+              <Image style={{ width: 150, height: 150, padding: 20 }} source={{ uri: input.item.picture }} />
+              <Text style={{ padding: 20, textAlign: 'center', color: 'white' }}>{input.item.numberOfReviews} Reviews {'\n'} 
             <Text></Text>
             Avg Score: {ConTwoDecDigit(input.item.avgScore)} {'\n\n'} 
             Avg Play Time: {'\n\t'} {ConTwoDecDigit(input.item.avgPlayTime)} Hours  </Text>
@@ -93,9 +94,12 @@ function HomeScreen(props)  {
       );
       
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#05c131'}}>
         
-        <Text style>Home screen</Text>
+            <Image
+                source={require('./images/VelpLogoFull.png')}
+                style={{ height: 100, width: 200 }}
+            />
         <FlatList data={input}
           
           renderItem={_renderItem}

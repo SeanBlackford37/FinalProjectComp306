@@ -60,8 +60,8 @@ const remItem = (title) => {
 	const [value, onChangeText] = React.useState("Enter Game Here");
 
     return (
-	<React.Fragment>
-      <View style={{ flex: 1 }}>
+        <React.Fragment>
+            <View style={{ flex: 1, backgroundColor: '#05c131' }}>
 	<Image
 		source={require('./images/default_profile.png')}
 		style={styles.profilePicture}
@@ -84,8 +84,8 @@ const remItem = (title) => {
 	</TouchableOpacity>
 	
 	
-      	</View>
-	<View style={{flex: 1}}>
+            </View>
+            <View style={{ flex: 1, backgroundColor: '#05c131' }}>
 		
 		
 		<Modal
@@ -99,7 +99,8 @@ const remItem = (title) => {
 		<View style = {{
     		flex: 1,
     		justifyContent: "center",
-    		alignItems: "center"
+                        alignItems: "center",
+                        backgroundColor: '#44c061'
   		}}>
 		<View style={styles.modalView}>
 		<TextInput
@@ -127,7 +128,8 @@ const remItem = (title) => {
 		<Text style={{
 		fontWeight: "bold",
 		fontSize: 30,
-		textAlign: "center"
+        textAlign: "center",
+        color: 'white'
 		}}>Reviews</Text>
 		<TouchableHighlight
 			style={{
@@ -143,14 +145,17 @@ const remItem = (title) => {
 		<FlatList
 			data={temp_data}
 			renderItem={({ item }) => {
-				return (
-					<TouchableHighlight 
+                return (
+                    <View >
+                        <TouchableHighlight 
+                            style={{ backgroundColor: '#05c131' }}
 						onPress={() => {alert("\nGame: " + item.title + 
 									"\nRating: "+item.rating +
 									"\nReview: "+item.review +
 									"\nPlay Time: "+item.playtime+"hrs");}}>
 						<Text style={styles.item}> {item.title} </Text>
-					</TouchableHighlight>
+                        </TouchableHighlight>
+                        </View>
 					);
 					}}
 					/>

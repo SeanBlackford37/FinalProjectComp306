@@ -70,7 +70,8 @@ import {StyleSheet} from 'react-native';
 	top: 40,
 	left: 300,
 	fontWeight: "bold",
-	fontSize: 30
+    fontSize: 30,
+    color: 'white'
 	
 },
 	profileText: {
